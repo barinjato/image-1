@@ -1,0 +1,23 @@
+ ## Git branch in prompt.
+ parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+ }
+
+ PS1="[ \h: \w ]\033[32m\]\$(parse_git_branch)\[\033[00m\]\n"
+
+ ## aliases
+ ## --------------
+ alias ..='cd ..'
+ alias ...='cd ../..'
+ alias ..1='cd ..'
+ alias ..2='cd ../..'
+ alias ..3='cd ../../..'
+ alias ..4='cd ../../../..'
+ alias l..1='ls --color -haort ..'
+ alias l..2='ls --color -haort ../..'
+ alias l..3='ls --color -haort ../../..'
+ alias l..4='ls --color -haort ../../../..'
+ alias l='ls --color -haort'
+ alias ll='ls --color -hal'
+ alias la='ls --color -haort'
+ alias lo='ls --color -hort'
